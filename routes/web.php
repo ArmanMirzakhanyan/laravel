@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+//use App\Http\Controllers\HomeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,20 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('/contact', function () {
-    return view('contact');
-});
-//Route::get('/post/{id}', function ($id) {
-//    return view('post')->with('id',$id);
+//Route::get('/', function () {
+//    return view('welcome');
 //});
-Route::get('/post/{slug?}', function ($slug=null) {
-    echo 'optional'.$slug;
-    //return view('post')->with('id',$id);
-});
-Route::match(['get', 'post'], '/category', function () {
-    echo "rasslabsya";
-});
-Route::redirect('/here', '/contact', 301);
+Route::get('/','HomeController@index');
+//Route::get('/contact','HomeController@show');
+//Route::get('/', [HomeController::class, 'index']);
+Route::get('/posts/show/{id}','HomeController@show')->name('single_post');
+Route::get('post/{id}','HomeController@delete');

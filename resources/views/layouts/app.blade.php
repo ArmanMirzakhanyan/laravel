@@ -8,11 +8,6 @@
     <title>Document</title>
 </head>
 <body>
-<h2>Last Posts</h2>
-@if(count($title)>0)
-    @foreach ($title as $a)
-        <h3>{{$a}}</h3>
-    @endforeach
-@endif
+@yield('content')
 </body>
 </html>
